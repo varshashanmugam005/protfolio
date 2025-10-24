@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Varsha S - Full Stack Web Developer Portfolio showcasing MERN stack projects and web development experience" />
+  <meta name="keywords" content="web developer, full stack developer, MERN stack, React, Node.js, MongoDB, JavaScript" />
+  <title>Varsha S - Full Stack Web Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0d6efd;
+      --primary-light: #e7f1ff;
+      --dark: #333;
+      --light: #f4f8fb;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1));
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 600;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      position: relative;
+    }
+
+    .about-container {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project, .job, .edu {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      border-radius: 8px;
+      background: var(--light);
+      transition: var(--transition);
+    }
+
+    .project:hover, .job:hover, .edu:hover {
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .skills span {
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      cursor: default;
+    }
+
+    .skills span:hover {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.05);
+    }
+
+    #download-resume-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 1rem;
+      background-image: linear-gradient(to right, #3b82f6, #8b5cf6);
+      padding: 0.75rem 1.5rem;
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: white;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      font-family: "Poppins", sans-serif;
+    }
+
+    #download-resume-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 15px -3px rgb(139 92 246 / 0.4), 0 4px 6px -4px rgb(139 92 246 / 0.4);
+    }
+
+    #download-resume-btn svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      transition: transform 0.3s ease;
+    }
+
+    #download-resume-btn:hover svg {
+      transform: translateY(-2px) scale(1.1);
+    }
+
+    #success-message {
+      color: #a7f3d0;
+      font-size: 0.875rem;
+      animation: fadeIn 0.4s ease-in-out;
+      margin-top: 0.5rem;
+      font-weight: 300;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--primary);
+      color: white;
+      margin-top: 3rem;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    a:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    ul {
+      list-style-position: inside;
+      margin-left: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .about-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      section {
+        padding: 1.5rem;
+        margin: 1rem;
+      }
+
+      .skills span {
+        padding: 6px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Varsha S</h1>
+    <p>Full Stack Web Developer | Tirupur, India</p>
+    <p><a href="mailto:shruti.m95975@gmail.com">shruti.m95975@gmail.com</a> | 📞 +91-9342885099</p>
+    <div style="margin-top: 1.5rem;">
+      <button id="download-resume-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+        <span>Download Resume</span>
+      </button>
+      <p id="success-message" style="display: none;">✅ Resume downloaded successfully!</p>
+    </div>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <div class="about-container">
+      <img src="download.jpg" alt="Varsha S" class="profile-pic">
+      <p>
+        Passionate and dedicated web developer skilled in HTML, CSS, JavaScript, React, and the MERN stack.
+        Experienced through internships and personal projects, with strong problem-solving abilities and
+        a keen interest in building responsive, accessible websites.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="edu">
+      <strong>B.Tech in Information Technology</strong><br />
+      Muthayammal Engineering College, Rasipuram<br />
+      <small>Relevant coursework: Web Development, Data Structures, Algorithms</small>
+    </div>
+    <div class="edu">
+      <strong>Higher Secondary School Certificate</strong><br />
+      Vijay Vidhyalaiya Matric Hr Sec School
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="job">
+      <strong>Web Development Intern - Appin Technology</strong> (June 2025 – July 2025)<br />
+      <ul>
+        <li>Built responsive websites using HTML, CSS, JavaScript, and Bootstrap.</li>
+        <li>Applied UI/UX design principles for improved user experiences.</li>
+        <li>Collaborated with teams to deliver client-focused projects.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <strong>Full Stack Intern - NoviTech R&D Pvt. Ltd.</strong> (April 2025 – May 2025)<br />
+      <ul>
+        <li>Worked with React, Node.js, Express, and MongoDB (MERN Stack).</li>
+        <li>Built features and integrations for real-world prototypes.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <div class="project">
+      <strong>Linkaro</strong><br />
+      A LinkedIn-style platform for underprivileged users, supporting visual posts, local languages,
+      job search, and skill learning.<br />
+      <em>Tech:</em> HTML, CSS, JavaScript, React, MERN
+    </div>
+    <div class="project">
+      <strong>VinTime</strong><br />
+      A responsive watch showroom website with product listing, filtering, and modern UI.<br />
+      <em>Tech:</em> HTML, CSS, JavaScript
+    </div>
+  </section>
+
+  <section>
+    <h2>Certifications</h2>
+    <p><strong>Learnathon 2020 - ICT Academy</strong> (Aug 2024 – Oct 2024)</p>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skills">
+      <span>Java</span>
+      <span>C</span>
+      <span>JavaScript</span>
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>React</span>
+      <span>Node.js</span>
+      <span>Express.js</span>
+      <span>MongoDB</span>
+      <span>VS Code</span>
+      <span>Git</span>
+      <span>UI/UX Design</span>
+      <span>Responsive Web Development</span>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Varsha S — Built with ❤️ using HTML & CSS
+  </footer>
+
+  <script>
+    const downloadBtn = document.getElementById('download-resume-btn');
+    const successMessage = document.getElementById('success-message');
+
+    downloadBtn.addEventListener('click', () => {
+      const link = document.createElement('a');
+      link.href = 'autoCV.pdf';
+      link.download = 'autoCV.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      successMessage.style.display = 'block';
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
